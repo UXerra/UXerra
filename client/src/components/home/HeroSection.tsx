@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+
+// Lazy load the hero animation for better performance
+const HeroAnimation = lazy(() => import('./HeroAnimation'));
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
@@ -86,44 +89,48 @@ const HeroSection: React.FC = () => {
             </Link>
           </motion.div>
           
-          {/* Hero Animation Mockup */}
+          {/* Hero Animation with Lottie */}
           <motion.div 
             className="relative rounded-xl overflow-hidden gradient-border dark-mode-glow"
             variants={itemVariants}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" 
-              alt="UXerra AI Platform Interface" 
-              className="w-full h-auto rounded-xl" 
-            />
-            
-            {/* Floating elements */}
-            <motion.div 
-              className="absolute top-1/4 left-1/4 w-16 h-16 bg-white dark:bg-brand-dark-gray rounded-lg shadow-lg p-3"
-              variants={floatingElementVariants}
-              animate="animate"
-              custom={0}
-            >
-              <i className="ri-palette-line text-brand-blue text-2xl"></i>
-            </motion.div>
-            
-            <motion.div 
-              className="absolute top-1/3 right-1/4 w-16 h-16 bg-white dark:bg-brand-dark-gray rounded-lg shadow-lg p-3"
-              variants={floatingElementVariants}
-              animate="animate"
-              custom={1}
-            >
-              <i className="ri-code-box-line text-brand-orange text-2xl"></i>
-            </motion.div>
-            
-            <motion.div 
-              className="absolute bottom-1/4 left-1/3 w-16 h-16 bg-white dark:bg-brand-dark-gray rounded-lg shadow-lg p-3"
-              variants={floatingElementVariants}
-              animate="animate"
-              custom={2}
-            >
-              <i className="ri-translate-2 text-purple-500 text-2xl"></i>
-            </motion.div>
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-xl p-6">
+              <Suspense fallback={
+                <div className="w-full h-[400px] flex items-center justify-center">
+                  <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              }>
+                <HeroAnimation />
+              </Suspense>
+              
+              {/* Floating elements */}
+              <motion.div 
+                className="absolute top-1/4 left-1/4 w-16 h-16 bg-white dark:bg-brand-dark-gray rounded-lg shadow-lg p-3 z-10"
+                variants={floatingElementVariants}
+                animate="animate"
+                custom={0}
+              >
+                <i className="ri-palette-line text-brand-blue text-2xl"></i>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute top-1/3 right-1/4 w-16 h-16 bg-white dark:bg-brand-dark-gray rounded-lg shadow-lg p-3 z-10"
+                variants={floatingElementVariants}
+                animate="animate"
+                custom={1}
+              >
+                <i className="ri-code-box-line text-brand-orange text-2xl"></i>
+              </motion.div>
+              
+              <motion.div 
+                className="absolute bottom-1/4 left-1/3 w-16 h-16 bg-white dark:bg-brand-dark-gray rounded-lg shadow-lg p-3 z-10"
+                variants={floatingElementVariants}
+                animate="animate"
+                custom={2}
+              >
+                <i className="ri-translate-2 text-purple-500 text-2xl"></i>
+              </motion.div>
+            </div>
           </motion.div>
           
           <motion.div 
