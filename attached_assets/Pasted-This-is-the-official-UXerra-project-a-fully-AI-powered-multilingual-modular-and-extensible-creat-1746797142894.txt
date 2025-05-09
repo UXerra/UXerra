@@ -1,0 +1,68 @@
+This is the official UXerra project – a fully AI-powered, multilingual, modular and extensible creative platform built using Next.js, TypeScript, TailwindCSS, and OpenAI API integration.
+
+UXerra is designed to surpass traditional platforms like Figma, Webflow, Canva, and Framer – combining powerful automation with inspirational design. It is not just a website – it's a futuristic AI system and design ecosystem.
+
+🔹 Features:
+• AI content generation (OpenAI API via generateContent)
+• Newsletter automation (MailerLite API)
+• Stripe payments (Pro plan checkout)
+• Real-time animation (GSAP-ready)
+• Multilingual support (EN, SLO, DE, ES) via i18n
+• Fully SEO-optimized (sitemap, schema.org, meta)
+• Tailwind-based UI with custom cursor and popup FX
+• Responsive layout and ultra-modern visual identity
+
+🔧 Developer setup:
+```bash
+npm install
+npm run dev
+
+
+.replit → auto-run setup
+• replit.nix → Node.js 18 environment
+UXerra = Inspire. Automate. Lead the Future.
+Visit: https://uxerra.pro
+Contact: uxerra@gmail.com
+License: MIT
+Built to go beyond code and design.
+
+🔥 UXerra – The AI-Powered Creative Superplatform 🔥
+
+Welcome to the official UXerra repository: a next-generation, fully AI-integrated creative ecosystem – built to redefine how we build, design, and launch digital products.
+
+This platform is **modular**, **multilingual**, **automated**, and built using modern technologies:
+
+🚀 Built with:
+• Next.js (latest)
+• React + TypeScript
+• TailwindCSS (with GSAP animation support)
+• OpenAI API (AI Builder – content generation)
+• Stripe API (Pro plan payments)
+• MailerLite API (Newsletter system)
+• Multilanguage i18n (EN, SLO, DE, ES)
+• Schema.org structured SEO
+• Cursor FX, animated sections, popup lead magnet
+
+🌐 UXerra is not just a website – it’s an **AI platform** with emotion, vision, and automation.
+It combines marketing, creativity, UI/UX, and intelligence to create the most powerful design experience on the web.
+
+---
+
+📦 Developer instructions:
+```bash
+npm install
+npm run dev
+
+Please analyze this full platform and intelligently upgrade it to the highest possible standard.
+Tasks you may perform:
+•	Enhance UI/UX with new animations and transitions
+•	Optimize all performance and SEO metrics
+•	Expand multilingual and accessibility support
+•	Add more dynamic components and demos
+•	Improve AI generation logic and UX flows
+•	Add mobile and tablet optimization layers
+•	Implement PWA and offline mode
+•	Secure all API keys and user input endpoints
+•	Prepare global-ready Vercel deployment config
+📍 Vision: To become the world's most inspirational AI-powered design platform.
+ Dodatno nadgradi vse!
