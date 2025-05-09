@@ -1,0 +1,102 @@
+Full Upgrade Instructions for Replit AI Agent:
+
+Goal:
+Transform UXerra into the most advanced, multilingual, AI-powered design platform on the web. Every element must be secure, responsive, intelligent, and future-ready — visually inspired by cutting-edge 3D and animated interfaces (see attached image examples).
+
+🔧 Core Features to Add & Activate:
+Services:
+
+✅ Image Generator (AI-based, with prompts and style options)
+
+✅ Video Generator (with file upload, trimming, and AI generation)
+
+✅ Logo Generator (text-to-logo with branding styles)
+
+✅ Presentation Creator (AI slide generator)
+
+✅ Template Builder (for sites, banners, resumes, etc.)
+
+✅ Icon Library + Generator
+
+✅ AI Advice & Design Assistant (live suggestions)
+
+✅ AI Live Chat / Customer Assistant
+
+✅ Full Page Builder (drag & drop with AI blocks)
+
+✅ Templates Gallery (live preview, categorized, free + premium)
+
+✅ Design Request Page (hire pro UXerra creator for branding, UI, etc.)
+
+🧩 UI/UX Enhancements:
+Replace current hero background with 3D animation or interactive rotating cube (like the one in attached renders) using Three.js or GSAP.
+
+Add particle effects or neon light waves on scroll (subtle).
+
+Animate icons, cards, and buttons (e.g., hover + entry transitions with Framer Motion).
+
+Add missing icon to Real-Time Animation card (e.g., motion, bolt, or loop icon from Lucide).
+
+Use TailwindCSS for all styling and responsive layouts.
+
+Brand logo style:
+
+“UX” → blue
+
+“erra” → white on dark, black on light
+
+🤖 AI Content Generator Improvements:
+Add “Paste URL” input: fetch content, summarize, and allow multi-page auto-generation.
+
+Allow selection of section types: Hero, CTA, Features, FAQ, Testimonials, Pricing, Footer, etc.
+
+Auto-generate full site structure (multi-page builder).
+
+Add export to HTML, Markdown, JSON, or live preview.
+
+🌍 Multilingual Support:
+Keep: English, Slovenian, German, Spanish
+
+Add: French, Italian, Portuguese, Turkish, Polish, Russian, Chinese (ZH), Japanese, Arabic
+
+Use i18n support with auto-language detection and fallback
+
+Ensure right-to-left support for Arabic
+
+🔒 Security Requirements:
+Secure all API keys and environment variables (OpenAI, Stripe, MailerLite)
+
+Validate all user inputs, sanitize forms
+
+Enforce HTTPS compatibility
+
+Store generated content and user data securely
+
+🎨 Visual Upgrades:
+Add interactive 3D UX object or rotating cube animation to hero section
+
+Replace current background/image with the one in the attached mockups
+
+Inject real demo data from UXerra into placeholders
+
+Modern, bold typography with strong hierarchy
+
+Use Lucide or Tabler icons throughout UI
+
+🆘 Fallback ZIP Build (if AI fails):
+If this fails or exceeds capacity, generate a complete downloadable ZIP fallback project that includes:
+
+✅ All features above (HTML + TailwindCSS + JS)
+
+✅ Working frontend demo
+
+✅ Responsive pages with animations
+
+✅ Basic i18n & API placeholders
+
+✅ Structured folders for easy Vercel deploy
+
+📌 Final Note:
+This must be a fully functional, secured, and professionally designed SaaS platform — better than Webflow, Figma, Canva, Framer.
+💥 It must load fast, look futuristic, and be prepared for global scale.
+
