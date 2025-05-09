@@ -50,6 +50,12 @@ const Header: React.FC = () => {
             <Link href="/#ai-demo" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/#ai-demo' ? 'text-brand-blue' : ''}`}>
               {t('header.aiDemo')}
             </Link>
+            <Link href="/branding-wizard" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/branding-wizard' ? 'text-brand-blue' : ''}`}>
+              <span className="flex items-center">
+                <i className="ri-magic-line mr-1"></i>
+                {t('brandingWizard.title')}
+              </span>
+            </Link>
             <Link href="/#pricing" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/#pricing' ? 'text-brand-blue' : ''}`}>
               {t('header.pricing')}
             </Link>
@@ -125,6 +131,12 @@ const Header: React.FC = () => {
           </Link>
           <Link href="/#ai-demo" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
             {t('header.aiDemo')}
+          </Link>
+          <Link href="/branding-wizard" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+            <span className="flex items-center">
+              <i className="ri-magic-line mr-1"></i>
+              {t('brandingWizard.title')}
+            </span>
           </Link>
           <Link href="/#pricing" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
             {t('header.pricing')}

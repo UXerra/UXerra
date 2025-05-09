@@ -4,6 +4,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
 import AIDemo from "@/pages/AIDemo";
+import BrandingWizard from "@/pages/BrandingWizard";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" component={Home} />
             <Route path="/pricing" component={Pricing} />
             <Route path="/ai-demo" component={AIDemo} />
+            <Route path="/branding-wizard" component={BrandingWizard} />
             <Route component={NotFound} />
           </Switch>
         </main>
