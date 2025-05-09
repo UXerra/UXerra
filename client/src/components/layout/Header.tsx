@@ -42,26 +42,209 @@ const Header: React.FC = () => {
             <span className="text-2xl font-display font-bold gradient-text">UXerra</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Smart Mega Menu */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/#features" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/#features' ? 'text-brand-blue' : ''}`}>
-              {t('header.features')}
-            </Link>
-            <Link href="/#ai-demo" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/#ai-demo' ? 'text-brand-blue' : ''}`}>
-              {t('header.aiDemo')}
-            </Link>
-            <Link href="/branding-wizard" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/branding-wizard' ? 'text-brand-blue' : ''}`}>
-              <span className="flex items-center">
-                <i className="ri-magic-line mr-1"></i>
-                {t('brandingWizard.title')}
-              </span>
-            </Link>
-            <Link href="/#pricing" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/#pricing' ? 'text-brand-blue' : ''}`}>
-              {t('header.pricing')}
-            </Link>
-            <Link href="/#testimonials" className={`text-sm font-medium hover:text-brand-blue dark:hover:text-brand-blue transition-colors ${location === '/#testimonials' ? 'text-brand-blue' : ''}`}>
-              {t('header.testimonials')}
-            </Link>
+            {/* Create Menu */}
+            <div className="relative group">
+              <button className={`text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors`}>
+                <i className="ri-tools-fill mr-1.5"></i>
+                {t('header.create')} <i className="ri-arrow-down-s-line ml-1 opacity-70"></i>
+              </button>
+              <div className="absolute left-0 w-[550px] pt-4 top-full hidden group-hover:block">
+                <div className="bg-white dark:bg-brand-dark-gray rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-6 grid grid-cols-2 gap-4">
+                  <div className="col-span-2 mb-2">
+                    <h3 className="font-semibold text-sm mb-2 text-gray-500 dark:text-gray-400">{t('header.create')}</h3>
+                  </div>
+                  
+                  <Link href="/branding-wizard" className="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <span className="h-9 w-9 rounded-md bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-brand-blue mr-2">
+                      <i className="ri-magic-line text-lg"></i>
+                    </span>
+                    <div>
+                      <span className="font-medium block">{t('header.createMenu.brandingWizard')}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Complete AI-powered brand identity creator</span>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/ai-content-generator" className="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <span className="h-9 w-9 rounded-md bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400 mr-2">
+                      <i className="ri-file-text-line text-lg"></i>
+                    </span>
+                    <div>
+                      <span className="font-medium block">{t('header.createMenu.contentGen')}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Generate website and marketing content</span>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/image-generator" className="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <span className="h-9 w-9 rounded-md bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 mr-2">
+                      <i className="ri-image-line text-lg"></i>
+                    </span>
+                    <div>
+                      <span className="font-medium block">{t('header.createMenu.imageGen')}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Create custom images with AI</span>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/social-media-generator" className="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <span className="h-9 w-9 rounded-md bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-600 dark:text-pink-400 mr-2">
+                      <i className="ri-instagram-line text-lg"></i>
+                    </span>
+                    <div>
+                      <span className="font-medium block">{t('header.createMenu.socialMediaGen')}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Design posts for all social platforms</span>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/logo-generator" className="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <span className="h-9 w-9 rounded-md bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-yellow-600 dark:text-yellow-400 mr-2">
+                      <i className="ri-pantone-line text-lg"></i>
+                    </span>
+                    <div>
+                      <span className="font-medium block">{t('header.createMenu.logoGen')}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Professional logo design with AI</span>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/wireframe-converter" className="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <span className="h-9 w-9 rounded-md bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mr-2">
+                      <i className="ri-layout-line text-lg"></i>
+                    </span>
+                    <div>
+                      <span className="font-medium block">{t('header.createMenu.wireframeConverter')}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Convert sketches into working websites</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
+            {/* Explore Menu */}
+            <div className="relative group">
+              <button className={`text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors`}>
+                <i className="ri-compass-3-line mr-1.5"></i>
+                {t('header.explore')} <i className="ri-arrow-down-s-line ml-1 opacity-70"></i>
+              </button>
+              <div className="absolute left-0 w-[450px] pt-4 top-full hidden group-hover:block">
+                <div className="bg-white dark:bg-brand-dark-gray rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-6">
+                  <div className="mb-2">
+                    <h3 className="font-semibold text-sm mb-2 text-gray-500 dark:text-gray-400">{t('header.explore')}</h3>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link href="/templates" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-layout-4-line mr-2 text-brand-blue"></i>
+                      <span>{t('header.exploreMenu.templates')}</span>
+                    </Link>
+                    
+                    <Link href="/icons" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-remixicon-line mr-2 text-green-600 dark:text-green-400"></i>
+                      <span>{t('header.exploreMenu.icons')}</span>
+                    </Link>
+                    
+                    <Link href="/animations" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-movie-line mr-2 text-purple-600 dark:text-purple-400"></i>
+                      <span>{t('header.exploreMenu.animations')}</span>
+                    </Link>
+                    
+                    <Link href="/freebies" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-gift-line mr-2 text-pink-600 dark:text-pink-400"></i>
+                      <span>{t('header.exploreMenu.freebies')}</span>
+                    </Link>
+                    
+                    <Link href="/premium" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-vip-crown-line mr-2 text-yellow-600 dark:text-yellow-400"></i>
+                      <span>{t('header.exploreMenu.premium')}</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Hire Expert Menu */}
+            <div className="relative group">
+              <button className={`text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors`}>
+                <i className="ri-user-star-line mr-1.5"></i>
+                {t('header.hireExpert')} <i className="ri-arrow-down-s-line ml-1 opacity-70"></i>
+              </button>
+              <div className="absolute left-0 w-[450px] pt-4 top-full hidden group-hover:block">
+                <div className="bg-white dark:bg-brand-dark-gray rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-6">
+                  <div className="mb-2">
+                    <h3 className="font-semibold text-sm mb-2 text-gray-500 dark:text-gray-400">{t('header.hireExpert')}</h3>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link href="/custom-design" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-artboard-line mr-2 text-brand-blue"></i>
+                      <span>{t('header.hireMenu.customDesign')}</span>
+                    </Link>
+                    
+                    <Link href="/website-development" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-code-box-line mr-2 text-green-600 dark:text-green-400"></i>
+                      <span>{t('header.hireMenu.websiteDev')}</span>
+                    </Link>
+                    
+                    <Link href="/brand-identity" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-palette-line mr-2 text-purple-600 dark:text-purple-400"></i>
+                      <span>{t('header.hireMenu.brandIdentity')}</span>
+                    </Link>
+                    
+                    <Link href="/submit-brief" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-file-list-3-line mr-2 text-pink-600 dark:text-pink-400"></i>
+                      <span>{t('header.hireMenu.submitBrief')}</span>
+                    </Link>
+                    
+                    <Link href="/services-pricing" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-price-tag-3-line mr-2 text-yellow-600 dark:text-yellow-400"></i>
+                      <span>{t('header.hireMenu.pricing')}</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Resources Menu */}
+            <div className="relative group">
+              <button className={`text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors`}>
+                <i className="ri-book-open-line mr-1.5"></i>
+                {t('header.resources')} <i className="ri-arrow-down-s-line ml-1 opacity-70"></i>
+              </button>
+              <div className="absolute left-0 w-[450px] pt-4 top-full hidden group-hover:block">
+                <div className="bg-white dark:bg-brand-dark-gray rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-6">
+                  <div className="mb-2">
+                    <h3 className="font-semibold text-sm mb-2 text-gray-500 dark:text-gray-400">{t('header.resources')}</h3>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link href="/blog" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-article-line mr-2 text-brand-blue"></i>
+                      <span>{t('header.resourcesMenu.blog')}</span>
+                    </Link>
+                    
+                    <Link href="/tutorials" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-video-line mr-2 text-green-600 dark:text-green-400"></i>
+                      <span>{t('header.resourcesMenu.tutorials')}</span>
+                    </Link>
+                    
+                    <Link href="/case-studies" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-folder-chart-line mr-2 text-purple-600 dark:text-purple-400"></i>
+                      <span>{t('header.resourcesMenu.caseStudies')}</span>
+                    </Link>
+                    
+                    <Link href="/help" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-question-line mr-2 text-pink-600 dark:text-pink-400"></i>
+                      <span>{t('header.resourcesMenu.help')}</span>
+                    </Link>
+                    
+                    <Link href="/community" className="p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center">
+                      <i className="ri-team-line mr-2 text-yellow-600 dark:text-yellow-400"></i>
+                      <span>{t('header.resourcesMenu.community')}</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
             <div className="language-dropdown relative">
               <button className="text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-md border border-gray-200 dark:border-gray-700">
                 {language === 'en' && <span className="fi fi-gb mr-2"></span>}

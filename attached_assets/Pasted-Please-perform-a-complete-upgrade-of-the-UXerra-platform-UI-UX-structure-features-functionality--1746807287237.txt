@@ -1,0 +1,107 @@
+Please perform a complete upgrade of the UXerra platform UI, UX, structure, features, functionality, visuals, and pricing logic.
+
+🧭 Smart Navigation Menu (New)
+Implement a smart dropdown menu with 3–4 main categories only.
+
+Example from Zipchat: visual category menu with icons and subcategories.
+
+Suggested structure:
+
+Create (AI Tools: Image, Video, Logo, Templates, Presentations...)
+
+Explore (Templates Gallery, Icon Library, Free vs Paid)
+
+Hire Expert (Custom Design Orders, Submit Brief)
+
+Resources or Community (Blog, Tutorials, Case Studies, Help)
+
+🔁 Current “Features” menu is broken – clicking does nothing. Fix and expand into proper UX mega menu.
+
+🧩 Missing & Incomplete Features (Add or Fix)
+Add “AI Branding Wizard” as seen in UI.
+
+Content Generator must allow:
+
+“Paste a URL” → auto-fetch + summarize content.
+
+Generate entire multipage layout from prompt or link.
+
+Add missing services:
+
+Social Media Post Generator
+
+Cover Image Generator
+
+Brand Kit Export (.zip)
+
+PDF Presentation Generator
+
+Wireframe to Website converter (upload sketch/image)
+
+💻 Full Visual/UX Enhancement
+Replace current homepage graphics with:
+
+Animated UX Cube or UX/X visuals (examples provided).
+
+Three.js or GSAP-based animated background, real-time transitions.
+
+Real-Time Animation card still missing an icon – use lucide:zap or motion.
+
+Apply correct branding to logo:
+
+“UX” in blue, “erra” in white on dark / black on light.
+
+Use Framer Motion + TailwindCSS for all micro-interactions.
+
+🌍 Multilingual Upgrade
+Keep EN, SLO, DE, ES – add:
+
+FR, IT, PT, PL, TR, RU, ZH, JA, AR
+
+Use i18n + auto language detection with fallback
+
+Translate all pages + dynamically serve localized content
+
+🔐 Security & Data Protection
+Sanitize all user input
+
+Encrypt all API keys and data
+
+Store generated content securely
+
+Enable HTTPS and GDPR compatibility
+
+🛒 Pricing Page (New)
+Add full pricing section for Custom Brand Website Orders (like on image example):
+
+Plan 1: Classic (1 request at a time, no Framer)
+
+Plan 2: Pro (2 active tasks, Framer site, custom animations)
+
+Add toggle for monthly/yearly pricing
+
+Add “Start Brief” button that links to order form
+
+📦 Final Requirement
+If AI encounters issues, create a fully functional fallback ZIP project with:
+
+All code, design, AI tools, working generators, pricing, gallery, form logic
+
+Tailwind + Next.js compatible
+
+Ready for Vercel deployment
+
+Include sample images, UX cube or branding visuals, icons, translated JSONs
+
+✅ Every element must be:
+Intelligent
+
+Visually stunning
+
+Multilingual
+
+Mobile-optimized
+
+Secure and API-ready
+
+Better than platforms like Webflow, Figma, Canva, Framer

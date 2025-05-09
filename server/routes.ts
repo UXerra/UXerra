@@ -12,7 +12,7 @@ if (!stripeSecretKey && process.env.NODE_ENV === "production") {
 }
 
 const stripe = new Stripe(stripeSecretKey, {
-  apiVersion: "2023-10-16",
+  apiVersion: "2025-04-30.basil",
 });
 
 // Initialize OpenAI
@@ -77,7 +77,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         response_format: { type: "json_object" }
       });
       
-      const result = JSON.parse(response.choices[0].message.content);
+      const contentString = response.choices[0].message.content || '{}';
+      const result = JSON.parse(contentString);
       res.json({
         html: result.html,
         code: result.code

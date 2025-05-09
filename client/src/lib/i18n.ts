@@ -170,7 +170,44 @@ i18n
             getStarted: 'Get Started',
             language: 'Language',
             darkMode: 'Switch to dark mode',
-            lightMode: 'Switch to light mode'
+            lightMode: 'Switch to light mode',
+            create: 'Create',
+            explore: 'Explore',
+            hireExpert: 'Hire Expert',
+            resources: 'Resources',
+            createMenu: {
+              imageGen: 'Image Generator', 
+              videoGen: 'Video Generator',
+              logoGen: 'Logo Generator',
+              templateGen: 'Template Generator',
+              presentationGen: 'Presentation Generator',
+              brandingWizard: 'Branding Wizard',
+              contentGen: 'Content Generator',
+              socialMediaGen: 'Social Media Generator',
+              coverImageGen: 'Cover Image Generator',
+              wireframeConverter: 'Wireframe to Website'
+            },
+            exploreMenu: {
+              templates: 'Templates Gallery',
+              icons: 'Icon Library',
+              animations: 'Animations Library',
+              freebies: 'Free Resources',
+              premium: 'Premium Content'
+            },
+            hireMenu: {
+              customDesign: 'Custom Design',
+              websiteDev: 'Website Development',
+              brandIdentity: 'Brand Identity',
+              submitBrief: 'Submit Brief',
+              pricing: 'Services Pricing'
+            },
+            resourcesMenu: {
+              blog: 'Blog',
+              tutorials: 'Tutorials',
+              caseStudies: 'Case Studies',
+              help: 'Help Center',
+              community: 'Community'
+            }
           },
           hero: {
             launchingBadge: 'Launching UXerra 4.0',

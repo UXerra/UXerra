@@ -57,6 +57,8 @@ export class MemStorage implements IStorage {
       ...insertSubscriber,
       id,
       name: insertSubscriber.name || null,
+      status: insertSubscriber.status || 'active',
+      subscribed: insertSubscriber.subscribed !== undefined ? insertSubscriber.subscribed : true,
       createdAt: new Date()
     };
     this.subscribers.set(id, subscriber);
