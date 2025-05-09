@@ -34,6 +34,21 @@ if (!mailerLiteApiKey && process.env.NODE_ENV === "production") {
   console.warn("MailerLite API key is not set. Set MAILERLITE_API_KEY in .env file or environment variables.");
 }
 
+/**
+ * Generate a simple SVG logo based on the brand name and colors
+ */
+function generateLogoSVG(name: string, primaryColor: string, secondaryColor: string): string {
+  // Get first letter or first two letters of the brand name
+  const initials = name.slice(0, name.includes(' ') ? 2 : 1).toUpperCase();
+  
+  // Create a simple SVG logo with the initials
+  return `<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="${secondaryColor}" rx="20" ry="20"/>
+    <circle cx="100" cy="100" r="80" fill="${primaryColor}"/>
+    <text x="100" y="125" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle" fill="white">${initials}</text>
+  </svg>`;
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes prefix with /api
   
@@ -208,6 +223,80 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error: any) {
       console.error("Error handling Stripe webhook:", error);
       res.status(400).send(`Webhook Error: ${error.message}`);
+    }
+  });
+  
+  // AI Branding Wizard endpoint for generating brand identity
+  app.post("/api/generate-branding", async (req, res) => {
+    try {
+      const { name, industry, goal, description, targetAudience, style, colorPreference } = req.body;
+      
+      // Validate the request
+      if (!name || !industry || !goal || !description || !targetAudience || !style) {
+        return res.status(400).json({ 
+          error: 'Missing required fields in brand brief' 
+        });
+      }
+
+      // Create prompt for OpenAI
+      const prompt = `Generate a complete brand identity for a company with the following details:
+        
+Name: ${name}
+Industry: ${industry}
+Purpose/Goal: ${goal}
+Description: ${description}
+Target Audience: ${targetAudience}
+Preferred Brand Style: ${style}
+${colorPreference ? `Color Preferences: ${colorPreference}` : ''}
+
+Please create a comprehensive brand identity package including:
+1. A color palette with 5 colors in HEX format (primary, secondary, accent, and neutral colors)
+2. Typography recommendations (primary and secondary fonts that work well together)
+3. A description of the illustration style that would work well for this brand
+4. A description of an appropriate website template/layout for this brand
+
+Respond ONLY in JSON format with the following structure:
+{
+  "colorPalette": ["#HEX1", "#HEX2", "#HEX3", "#HEX4", "#HEX5"],
+  "typography": {
+    "primary": "Font Name",
+    "secondary": "Font Name"
+  },
+  "illustrationStyle": "Detailed description of illustration style",
+  "websiteTemplate": "Detailed description of website template/layout"
+}`;
+
+      // Generate brand identity using OpenAI
+      const completion = await openai.chat.completions.create({
+        model: GPT_MODEL,
+        messages: [
+          { role: "system", content: "You are a professional brand identity designer and expert in creating cohesive brand packages. Respond only with JSON data in the requested format." },
+          { role: "user", content: prompt }
+        ],
+        response_format: { type: "json_object" },
+        temperature: 0.7
+      });
+
+      // Parse the response
+      const responseContent = completion.choices[0].message.content;
+      const brandingData = JSON.parse(responseContent || '{}');
+
+      // Generate a simple SVG logo as a placeholder
+      const logoSvg = generateLogoSVG(name, brandingData.colorPalette[0], brandingData.colorPalette[1]);
+      
+      // Compile the full result
+      const result = {
+        logo: `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`,
+        ...brandingData
+      };
+
+      res.json(result);
+    } catch (error: any) {
+      console.error('Error generating branding:', error);
+      res.status(500).json({ 
+        error: 'Failed to generate branding', 
+        details: error.message 
+      });
     }
   });
 

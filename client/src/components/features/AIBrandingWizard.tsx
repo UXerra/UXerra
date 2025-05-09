@@ -183,28 +183,28 @@ const AIBrandingWizard: React.FC = () => {
     setActiveTab('results');
 
     try {
-      // TODO: Replace with actual API call when backend is implemented
-      // Simulate API call with timeout
-      await new Promise(resolve => setTimeout(resolve, 3000));
-
-      // Mock response for now
-      const mockResult: BrandingResult = {
-        logo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y4ZjhmOCIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iODAiIGZpbGw9IiM0Mjg1RjQiLz48dGV4dCB4PSIxMDAiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiPk1PQ0s8L3RleHQ+PC9zdmc+",
-        colorPalette: ["#4285F4", "#34A853", "#FBBC05", "#EA4335", "#F8F8F8"],
-        typography: {
-          primary: "Montserrat",
-          secondary: "Roboto"
+      // Call the API endpoint to generate the brand identity
+      const response = await fetch('/api/generate-branding', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
-        illustrationStyle: "Modern and minimalist with geometric shapes and vibrant colors",
-        websiteTemplate: "A clean, responsive single-page layout with plenty of white space, card-based components, and subtle animations that emphasize the brand's modern approach."
-      };
+        body: JSON.stringify(brandBrief)
+      });
 
-      setBrandingResult(mockResult);
+      if (!response.ok) {
+        throw new Error(`API returned status: ${response.status}`);
+      }
+
+      const result: BrandingResult = await response.json();
+      setBrandingResult(result);
+      
       toast({
         title: t('brandingWizard.successTitle'),
         description: t('brandingWizard.generationSuccess')
       });
     } catch (error) {
+      console.error('Error generating brand identity:', error);
       toast({
         title: t('brandingWizard.errorTitle'),
         description: t('brandingWizard.generationError'),
