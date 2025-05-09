@@ -57,17 +57,29 @@ const Header: React.FC = () => {
               {t('header.testimonials')}
             </Link>
             <div className="language-dropdown relative">
-              <button className="text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors">
+              <button className="text-sm font-medium flex items-center hover:text-brand-blue dark:hover:text-brand-blue transition-colors bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-md border border-gray-200 dark:border-gray-700">
+                {language === 'en' && <span className="fi fi-gb mr-2"></span>}
+                {language === 'sl' && <span className="fi fi-si mr-2"></span>}
+                {language === 'de' && <span className="fi fi-de mr-2"></span>}
+                {language === 'es' && <span className="fi fi-es mr-2"></span>}
                 <span>{language.toUpperCase()}</span>
                 <i className="ri-arrow-down-s-line ml-1"></i>
               </button>
-              <div className="language-menu absolute right-0 mt-2 py-2 w-36 bg-white dark:bg-brand-dark-gray rounded-md shadow-lg border border-gray-100 dark:border-gray-700">
+              <div className="language-menu absolute right-0 mt-2 py-2 w-40 bg-white dark:bg-brand-dark-gray rounded-md shadow-lg border border-gray-100 dark:border-gray-700 z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => changeLanguage(lang.code as Language)}
-                    className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors ${language === lang.code ? 'text-brand-blue' : ''}`}
+                    className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors ${
+                      language === lang.code 
+                        ? 'text-brand-blue bg-gray-50 dark:bg-gray-800 font-medium' 
+                        : ''
+                    }`}
                   >
+                    {lang.code === 'en' && <span className="fi fi-gb mr-2"></span>}
+                    {lang.code === 'sl' && <span className="fi fi-si mr-2"></span>}
+                    {lang.code === 'de' && <span className="fi fi-de mr-2"></span>}
+                    {lang.code === 'es' && <span className="fi fi-es mr-2"></span>}
                     {lang.name}
                   </button>
                 ))}
@@ -130,12 +142,16 @@ const Header: React.FC = () => {
                     changeLanguage(lang.code as Language);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`px-3 py-2 text-sm rounded-md text-center ${
+                  className={`px-3 py-2 text-sm rounded-md text-center flex items-center justify-center ${
                     language === lang.code 
-                      ? 'bg-gray-50 dark:bg-gray-800' 
+                      ? 'bg-gray-50 dark:bg-gray-800 text-brand-blue font-medium' 
                       : 'hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
+                  {lang.code === 'en' && <span className="fi fi-gb mr-2"></span>}
+                  {lang.code === 'sl' && <span className="fi fi-si mr-2"></span>}
+                  {lang.code === 'de' && <span className="fi fi-de mr-2"></span>}
+                  {lang.code === 'es' && <span className="fi fi-es mr-2"></span>}
                   {lang.name}
                 </button>
               ))}
