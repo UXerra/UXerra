@@ -66,7 +66,9 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export const insertSubscriberSchema = createInsertSchema(subscribers).pick({
   email: true,
-  name: true
+  name: true,
+  status: true,
+  subscribed: true
 });
 
 export const insertGeneratedContentSchema = createInsertSchema(generatedContents).pick({

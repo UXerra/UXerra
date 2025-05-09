@@ -125,7 +125,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       );
       
       // Add subscriber to database
-      await storage.createSubscriber({ email, name });
+      await storage.createSubscriber({ 
+        email, 
+        name, 
+        status: 'active',
+        subscribed: true 
+      });
       
       res.json({ success: true, data: response.data });
     } catch (error: any) {
