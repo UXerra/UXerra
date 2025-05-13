@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from "react";
 import Head from 'next/head';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
+  // En sam useEffect blok – pravilno
   useEffect(() => {
-    // Simulate loading
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
@@ -58,6 +58,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+
       <footer className="bg-white">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
           <div className="mt-8 md:mt-0">
@@ -69,4 +70,4 @@ export default function Home() {
       </footer>
     </div>
   );
-} 
+}

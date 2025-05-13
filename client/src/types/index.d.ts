@@ -1,7 +1,3 @@
-declare module 'react' {
-  export * from 'react';
-}
-
 declare module 'react-i18next' {
   export * from 'react-i18next';
 }
