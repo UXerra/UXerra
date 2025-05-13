@@ -1,0 +1,119 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  password      String
+  name          String
+  role          String         @default("USER")
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  subscription  Subscription?
+  auditLogs     AuditLog[]
+  apiKeys       ApiKey[]
+}
+
+model Subscription {
+  id                String    @id @default(cuid())
+  userId           String    @unique
+  user             User      @relation(fields: [userId], references: [id])
+  status           String    @default("INACTIVE")
+  plan             String
+  currentPeriodEnd DateTime
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model NewsletterSubscriber {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  email     String    @unique
+  name      String?
+  status    String
+  fields    Json?
+  groups    String[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("newsletter_subscribers")
+}
+
+model GeneratedContent {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String    @db.ObjectId
+  type      String
+  prompt    String
+  content   Json
+  metadata  Json
+  createdAt DateTime  @default(now())
+
+  @@map("generated_content")
+}
+
+model BrandingPackage {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String    @db.ObjectId
+  name            String
+  industry        String
+  goal            String
+  description     String
+  targetAudience  String
+  style           String
+  colorPreference String?
+  result          Json
+  createdAt       DateTime  @default(now())
+
+  @@map("branding_packages")
+}
+
+model WebhookEvent {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  type        String
+  provider    String
+  payload     Json
+  status      String
+  error       String?
+  createdAt   DateTime  @default(now())
+  processedAt DateTime?
+
+  @@map("webhook_events")
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  action     String
+  resource   String
+  resourceId String
+  details    Json
+  ip         String
+  userAgent  String
+  createdAt  DateTime @default(now())
+}
+
+model ApiKey {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  key         String    @unique
+  name        String
+  permissions String[]
+  lastUsed    DateTime?
+  createdAt   DateTime  @default(now())
+  expiresAt   DateTime?
+}
+
+enum Role {
+  USER
+  ADMIN
+} 

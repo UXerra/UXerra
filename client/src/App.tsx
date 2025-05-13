@@ -1,37 +1,47 @@
-import { Switch, Route } from "wouter";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
-import Pricing from "@/pages/Pricing";
-import AIDemo from "@/pages/AIDemo";
-import BrandingWizard from "@/pages/BrandingWizard";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
-import LeadMagnetPopup from "@/components/layout/LeadMagnetPopup";
-import { useTheme } from "@/hooks/useTheme";
+import { Routes, Route } from 'react-router-dom';
+import { Toaster } from '@/components/ui/toaster';
+import { ThemeProvider } from '@/components/theme-provider';
+import { AuthProvider } from '@/components/auth-provider';
+import { Layout } from '@/components/layout';
+import { Home } from '@/pages/Home';
+import { Login } from '@/pages/auth/login';
+import { Register } from '@/pages/auth/register';
+import { Dashboard } from '@/pages/dashboard';
+import { Profile } from '@/pages/profile';
+import { NotFound } from '@/pages/not-found';
+import { PrivateRoute } from '@/components/auth/PrivateRoute';
 
-function App() {
-  const { theme } = useTheme();
-  
+export function App() {
   return (
-    <div className={theme}>
-      <TooltipProvider>
-        <CustomCursor />
-        <Header />
-        <main>
-          <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/pricing" component={Pricing} />
-            <Route path="/ai-demo" component={AIDemo} />
-            <Route path="/branding-wizard" component={BrandingWizard} />
-            <Route component={NotFound} />
-          </Switch>
-        </main>
-        <Footer />
-        <LeadMagnetPopup />
-      </TooltipProvider>
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="uxerra-theme">
+      <AuthProvider>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+        <Toaster />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,104 +1,85 @@
-import { pgTable, text, serial, integer, boolean, timestamp, json } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
-import { z } from "zod";
+import { z } from 'zod';
 
-// User table
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  email: text("email").notNull().unique(),
-  password: text("password").notNull(),
-  fullName: text("full_name"),
-  avatarUrl: text("avatar_url"),
-  stripeCustomerId: text("stripe_customer_id"),
-  stripeSubscriptionId: text("stripe_subscription_id"),
-  subscriptionStatus: text("subscription_status").default("inactive"),
-  subscriptionPlan: text("subscription_plan"),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow()
+// User schema
+export const userSchema = z.object({
+  id: z.string(),
+  email: z.string().email(),
+  name: z.string(),
+  role: z.enum(['USER', 'ADMIN']),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 });
 
-// Subscribers table (for newsletter)
-export const subscribers = pgTable("subscribers", {
-  id: serial("id").primaryKey(),
-  email: text("email").notNull().unique(),
-  name: text("name"),
-  status: text("status").default("active"),
-  subscribed: boolean("subscribed").default(true),
-  createdAt: timestamp("created_at").defaultNow()
+export const createUserSchema = z.object({
+  email: z.string().email(),
+  name: z.string().min(2),
+  password: z.string().min(8),
 });
 
-// AI Generated Content table
-export const generatedContents = pgTable("generated_contents", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  prompt: text("prompt").notNull(),
-  contentType: text("content_type").notNull(),
-  tone: text("tone"),
-  html: text("html"),
-  code: text("code"),
-  createdAt: timestamp("created_at").defaultNow()
+export const updateUserSchema = z.object({
+  name: z.string().min(2).optional(),
+  email: z.string().email().optional(),
 });
 
-// Subscription plans table
-export const subscriptionPlans = pgTable("subscription_plans", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  description: text("description"),
-  price: integer("price").notNull(), // in cents
-  currency: text("currency").default("USD"),
-  interval: text("interval").default("month"), // month, year
-  stripePriceId: text("stripe_price_id"),
-  features: json("features").$type<string[]>(),
-  isActive: boolean("is_active").default(true),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow()
+// Subscription schema
+export const subscriptionSchema = z.object({
+  id: z.string(),
+  userId: z.string(),
+  status: z.enum(['ACTIVE', 'INACTIVE', 'CANCELLED']),
+  plan: z.string(),
+  currentPeriodEnd: z.date(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 });
 
-// Create insert schemas
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  email: true,
-  password: true,
-  fullName: true,
-  avatarUrl: true
+// Newsletter schema
+export const newsletterSchema = z.object({
+  id: z.string(),
+  email: z.string().email(),
+  name: z.string().optional(),
+  status: z.enum(['ACTIVE', 'INACTIVE']),
+  fields: z.record(z.any()).optional(),
+  groups: z.array(z.string()),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 });
 
-export const insertSubscriberSchema = createInsertSchema(subscribers).pick({
-  email: true,
-  name: true,
-  status: true,
-  subscribed: true
+// Branding schema
+export const brandingSchema = z.object({
+  id: z.string(),
+  userId: z.string(),
+  name: z.string(),
+  industry: z.string(),
+  goal: z.string(),
+  description: z.string(),
+  targetAudience: z.string(),
+  style: z.string(),
+  colorPreference: z.string().optional(),
+  result: z.record(z.any()),
+  createdAt: z.date(),
 });
 
-export const insertGeneratedContentSchema = createInsertSchema(generatedContents).pick({
-  userId: true,
-  prompt: true,
-  contentType: true,
-  tone: true,
-  html: true,
-  code: true
+// API Key schema
+export const apiKeySchema = z.object({
+  id: z.string(),
+  userId: z.string(),
+  key: z.string(),
+  name: z.string(),
+  permissions: z.array(z.string()),
+  lastUsed: z.date().optional(),
+  createdAt: z.date(),
+  expiresAt: z.date().optional(),
 });
 
-export const insertSubscriptionPlanSchema = createInsertSchema(subscriptionPlans).pick({
-  name: true,
-  description: true,
-  price: true,
-  currency: true,
-  interval: true,
-  stripePriceId: true,
-  features: true
+// Audit Log schema
+export const auditLogSchema = z.object({
+  id: z.string(),
+  userId: z.string().optional(),
+  action: z.string(),
+  resource: z.string(),
+  resourceId: z.string(),
+  details: z.record(z.any()),
+  ip: z.string(),
+  userAgent: z.string(),
+  createdAt: z.date(),
 });
-
-// Define types
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
-
-export type InsertSubscriber = z.infer<typeof insertSubscriberSchema>;
-export type Subscriber = typeof subscribers.$inferSelect;
-
-export type InsertGeneratedContent = z.infer<typeof insertGeneratedContentSchema>;
-export type GeneratedContent = typeof generatedContents.$inferSelect;
-
-export type InsertSubscriptionPlan = z.infer<typeof insertSubscriptionPlanSchema>;
-export type SubscriptionPlan = typeof subscriptionPlans.$inferSelect;

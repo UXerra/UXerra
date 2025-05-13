@@ -1,0 +1,145 @@
+{
+  "common": {
+    "loading": "Nalaganje...",
+    "error": "Prišlo je do napake",
+    "retry": "Poskusi znova",
+    "cancel": "Prekliči",
+    "save": "Shrani",
+    "delete": "Izbriši",
+    "edit": "Uredi",
+    "create": "Ustvari",
+    "search": "Išči",
+    "filter": "Filtriraj",
+    "sort": "Razvrsti",
+    "more": "Več",
+    "less": "Manj",
+    "all": "Vse",
+    "none": "Brez",
+    "yes": "Da",
+    "no": "Ne",
+    "ok": "V redu",
+    "close": "Zapri",
+    "back": "Nazaj",
+    "next": "Naprej",
+    "previous": "Prejšnja",
+    "submit": "Pošlji",
+    "reset": "Ponastavi",
+    "confirm": "Potrdi",
+    "success": "Uspešno",
+    "warning": "Opozorilo",
+    "info": "Informacije",
+    "error": "Napaka"
+  },
+  "auth": {
+    "login": "Prijava",
+    "logout": "Odjava",
+    "register": "Registracija",
+    "email": "E-pošta",
+    "password": "Geslo",
+    "confirmPassword": "Potrdi geslo",
+    "forgotPassword": "Pozabljeno geslo?",
+    "resetPassword": "Ponastavi geslo",
+    "rememberMe": "Zapomni si me",
+    "name": "Ime",
+    "username": "Uporabniško ime",
+    "or": "ali",
+    "continueWith": "Nadaljuj z",
+    "noAccount": "Nimaš računa?",
+    "hasAccount": "Že imaš račun?",
+    "signUp": "Registracija",
+    "signIn": "Prijava"
+  },
+  "home": {
+    "hero": {
+      "title": "Profesionalna platforma za oblikovanje in razvoj spletnih strani",
+      "subtitle": "Ustvarite čudovite spletne strani z našimi orodji za oblikovanje na osnovi umetne inteligence",
+      "cta": "Začni",
+      "learnMore": "Več informacij"
+    },
+    "features": {
+      "title": "Funkcije",
+      "subtitle": "Vse, kar potrebujete za ustvarjanje neverjetnih spletnih strani",
+      "aiDesign": {
+        "title": "Oblikovanje z umetno inteligenco",
+        "description": "Ustvarite lepe oblike z našo napredno tehnologijo umetne inteligence"
+      },
+      "responsive": {
+        "title": "Odzivno oblikovanje",
+        "description": "Ustvarite spletne strani, ki izgledajo odlično na katerem koli napravu"
+      },
+      "customizable": {
+        "title": "Visoko prilagodljivo",
+        "description": "Prilagodite vsak vidik svoje spletne strani, da ustreza vaši znamki"
+      },
+      "seo": {
+        "title": "Optimizirano za SEO",
+        "description": "Vgrajena orodja za SEO, ki pomagajo vaši spletni strani doseči višjo uvrstitev"
+      }
+    },
+    "pricing": {
+      "title": "Cenik",
+      "subtitle": "Izberite paket, ki vam ustreza",
+      "monthly": "Mesečno",
+      "yearly": "Letno",
+      "save": "Prihrani",
+      "perMonth": "na mesec",
+      "perYear": "na leto",
+      "free": {
+        "title": "Brezplačno",
+        "description": "Idealno za začetek",
+        "features": [
+          "1 spletna stran",
+          "Osnovne predloge",
+          "Skupnostna podpora",
+          "Osnovna analitika"
+        ]
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Za strokovnjake in majhne ekipe",
+        "features": [
+          "5 spletnih strani",
+          "Vse predloge",
+          "Prednostna podpora",
+          "Napredna analitika",
+          "Po meri domena",
+          "Odstrani znamčenje"
+        ]
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "Za velike organizacije",
+        "features": [
+          "Neomejeno spletnih strani",
+          "Predloge po meri",
+          "24/7 podpora",
+          "Napredna analitika",
+          "Po meri domena",
+          "Odstrani znamčenje",
+          "API dostop",
+          "Integracije po meri"
+        ]
+      }
+    },
+    "testimonials": {
+      "title": "Kaj pravijo naši stranke",
+      "subtitle": "Pridružite se tisočem zadovoljnih strank"
+    },
+    "cta": {
+      "title": "Pripravljeni za začetek?",
+      "subtitle": "Pridružite se tisočem zadovoljnih strank",
+      "button": "Začni brezplačno preizkušnjo"
+    }
+  },
+  "dashboard": {
+    "title": "Nadzorna plošča",
+    "welcome": "Dobrodošli nazaj",
+    "overview": "Pregled",
+    "websites": "Spletne strani",
+    "analytics": "Analitika",
+    "settings": "Nastavitve",
+    "profile": "Profil",
+    "help": "Pomoč",
+    "logout": "Odjava"
+  }
+} 

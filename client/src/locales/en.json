@@ -1,0 +1,197 @@
+{
+  "The Future of": "The Future of",
+  "Design": "Design",
+  "is Here": "is Here",
+  "Create stunning designs with AI-powered tools. The most advanced platform for UX/UI, branding, and digital creation.": "Create stunning designs with AI-powered tools. The most advanced platform for UX/UI, branding, and digital creation.",
+  "Start Free Trial": "Start Free Trial",
+  "Watch Demo": "Watch Demo",
+  "AI Branding Wizard": "AI Branding Wizard",
+  "Create a complete brand identity in minutes with AI": "Create a complete brand identity in minutes with AI",
+  "Brand Name": "Brand Name",
+  "Enter your brand name": "Enter your brand name",
+  "Industry": "Industry",
+  "e.g., Technology, Fashion, Food": "e.g., Technology, Fashion, Food",
+  "Target Audience": "Target Audience",
+  "Describe your ideal customers": "Describe your ideal customers",
+  "Brand Values": "Brand Values",
+  "What does your brand stand for?": "What does your brand stand for?",
+  "Color Preferences (Optional)": "Color Preferences (Optional)",
+  "e.g., Blue and white, Earth tones": "e.g., Blue and white, Earth tones",
+  "Style Preferences (Optional)": "Style Preferences (Optional)",
+  "e.g., Minimalist, Playful, Professional": "e.g., Minimalist, Playful, Professional",
+  "Generating...": "Generating...",
+  "Generate Branding": "Generate Branding",
+  "Your Brand Identity": "Your Brand Identity",
+  "Logo": "Logo",
+  "Color Palette": "Color Palette",
+  "Typography": "Typography",
+  "Brand Identity": "Brand Identity",
+  "Download Assets": "Download Assets",
+  "Create Template": "Create Template",
+  "Fill out the form to generate your brand identity": "Fill out the form to generate your brand identity",
+  "The world's most advanced AI-powered design platform": "The world's most advanced AI-powered design platform",
+  "All rights reserved": "All rights reserved",
+  "Create": "Create",
+  "Explore": "Explore",
+  "Hire": "Hire",
+  "Resources": "Resources",
+  "AI Branding Wizard": "AI Branding Wizard",
+  "AI Page Builder": "AI Page Builder",
+  "AI Content Wizard": "AI Content Wizard",
+  "Template Builder": "Template Builder",
+  "Templates Gallery": "Templates Gallery",
+  "UI Components": "UI Components",
+  "Design Resources": "Design Resources",
+  "Showcase": "Showcase",
+  "Find Experts": "Find Experts",
+  "Post a Project": "Post a Project",
+  "Expert Profiles": "Expert Profiles",
+  "Success Stories": "Success Stories",
+  "Documentation": "Documentation",
+  "Tutorials": "Tutorials",
+  "Blog": "Blog",
+  "Community": "Community",
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "more": "More",
+    "less": "Less",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "error": "Error"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "resetPassword": "Reset Password",
+    "rememberMe": "Remember Me",
+    "name": "Name",
+    "username": "Username",
+    "or": "or",
+    "continueWith": "Continue with",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+  "home": {
+    "hero": {
+      "title": "Professional Web Design & Development Platform",
+      "subtitle": "Create stunning websites with our AI-powered design tools",
+      "cta": "Get Started",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "title": "Features",
+      "subtitle": "Everything you need to create amazing websites",
+      "aiDesign": {
+        "title": "AI-Powered Design",
+        "description": "Generate beautiful designs with our advanced AI technology"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Create websites that look great on any device"
+      },
+      "customizable": {
+        "title": "Highly Customizable",
+        "description": "Customize every aspect of your website to match your brand"
+      },
+      "seo": {
+        "title": "SEO Optimized",
+        "description": "Built-in SEO tools to help your website rank higher"
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "subtitle": "Choose the plan that's right for you",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save",
+      "perMonth": "per month",
+      "perYear": "per year",
+      "free": {
+        "title": "Free",
+        "description": "Perfect for getting started",
+        "features": [
+          "1 Website",
+          "Basic Templates",
+          "Community Support",
+          "Basic Analytics"
+        ]
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "For professionals and small teams",
+        "features": [
+          "5 Websites",
+          "All Templates",
+          "Priority Support",
+          "Advanced Analytics",
+          "Custom Domain",
+          "Remove Branding"
+        ]
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "For large organizations",
+        "features": [
+          "Unlimited Websites",
+          "Custom Templates",
+          "24/7 Support",
+          "Advanced Analytics",
+          "Custom Domain",
+          "Remove Branding",
+          "API Access",
+          "Custom Integrations"
+        ]
+      }
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "subtitle": "Join thousands of satisfied customers"
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Join thousands of satisfied customers",
+      "button": "Start Free Trial"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "overview": "Overview",
+    "websites": "Websites",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "profile": "Profile",
+    "help": "Help",
+    "logout": "Logout"
+  }
+} 
